@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtxeyhc66h0ul"]
+
+[ext_resource type="PackedScene" uid="uid://udd00ri3baiq" path="res://art/aimtrainer.glb" id="1_3u2iy"]
+[ext_resource type="Script" path="res://main.gd" id="1_gb1ht"]
+[ext_resource type="PackedScene" uid="uid://c1s1ifjicq0ck" path="res://player.tscn" id="1_kmek0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n55p5"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jyrm"]
+size = Vector3(1.14167, 20.5346, 60.3696)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gb1ht")
+
+[node name="World" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Floor" type="CollisionShape3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_n55p5")
+
+[node name="aimtrainer" parent="World" instance=ExtResource("1_3u2iy")]
+
+[node name="South Wall" type="CollisionShape3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4049, 10.9521, 0)
+shape = SubResource("BoxShape3D_7jyrm")
+
+[node name="North Wall" type="CollisionShape3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3598, 10.9521, 0)
+shape = SubResource("BoxShape3D_7jyrm")
+
+[node name="East Wall" type="CollisionShape3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0199146, 10.9521, 30.3928)
+shape = SubResource("BoxShape3D_7jyrm")
+
+[node name="West Wall" type="CollisionShape3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0199146, 10.9521, -30.1549)
+shape = SubResource("BoxShape3D_7jyrm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.534618, 0.845094, 0, -0.845094, 0.534618, -3.07026, 30.2562, 27.1605)
+light_energy = 0.423
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_kmek0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 22.18)
+speed = 5
+jump_impulse = 5
+gravity = -10
+mouse_sens = 0.001
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_target_timer_timeout"]

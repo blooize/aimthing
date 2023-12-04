@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwlauu1ok5prf"]
+
+[ext_resource type="Script" path="res://Target.gd" id="1_hnex8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr7ql"]
+albedo_color = Color(0.2, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_b873k"]
+material = SubResource("StandardMaterial3D_qr7ql")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8v7yn"]
+
+[node name="Target" type="CharacterBody3D"]
+script = ExtResource("1_hnex8")
+speed = null
+max_health = null
+current_health = null
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Pivot"]
+mesh = SubResource("SphereMesh_b873k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8v7yn")

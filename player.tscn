@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1s1ifjicq0ck"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_587ki"]
+[ext_resource type="Texture2D" uid="uid://bqsaxgxkukw7c" path="res://art/crosshair.png" id="2_psqia"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2low"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2sge"]
+size = Vector3(0.770225, 0.17822, 0.67848)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.0359176, 0)
+script = ExtResource("1_587ki")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39573, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.0479063, 0)
+fov = 65.0
+
+[node name="Sprite3D" type="Sprite3D" parent="Pivot/Camera3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -1.45234)
+texture = ExtResource("2_psqia")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Pivot/Camera3D"]
+
+[node name="Label" type="Label" parent="Pivot/Camera3D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Body" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_x2low")
+
+[node name="Feet" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0726873, 0)
+shape = SubResource("BoxShape3D_k2sge")
