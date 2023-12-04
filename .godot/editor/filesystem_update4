@@ -1,7 +1,7 @@
-res://main.tscn
-res://main.gd
-res://player.tscn
 res://target.tscn
+res://main.gd
+res://Target.gd
+res://main.tscn
+res://player.tscn
 res://bullet.tscn
 res://Player.gd
-res://Target.gd

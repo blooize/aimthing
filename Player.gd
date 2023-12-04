@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+var counter = 0
 @export var speed = 1
 @export var jump_impulse = 1
 @export var gravity = 9.81
@@ -52,10 +53,9 @@ func shoot():
 	if collision:
 		var result = regex.search(collision.collider.name)
 		if result:
-			$Pivot/Camera3D/CanvasLayer/Label.text = "Hit Registered"
+			counter += 1
+			$Pivot/Camera3D/CanvasLayer/Label.text = str(counter)
 			collision.collider.kill()
-		else:
-			$Pivot/Camera3D/CanvasLayer/Label.text = "Missed"
 	
 
 func _process(_delta):

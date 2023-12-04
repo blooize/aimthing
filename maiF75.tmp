@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtxeyhc66h0ul"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_gb1ht"]
+[ext_resource type="PackedScene" uid="uid://c1s1ifjicq0ck" path="res://player.tscn" id="1_kmek0"]
+[ext_resource type="PackedScene" uid="uid://bwlauu1ok5prf" path="res://target.tscn" id="3_2c2n6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kduco"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdxbs"]
+albedo_color = Color(0.368627, 0.619608, 0.278431, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqr12"]
+material = SubResource("StandardMaterial3D_rdxbs")
+size = Vector3(30, 1, 30)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gb1ht")
+target_scene = ExtResource("3_2c2n6")
+
+[node name="World" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World"]
+shape = SubResource("BoxShape3D_kduco")
+
+[node name="Floor" type="MeshInstance3D" parent="World"]
+mesh = SubResource("BoxMesh_qqr12")
+
+[node name="Spawn Pos3" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos4" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos5" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos6" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos2" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos7" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos8" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos9" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos10" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos11" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos12" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.534618, 0.845094, 0, -0.845094, 0.534618, -3.07026, 135.423, 88.3705)
+light_energy = 0.423
+shadow_enabled = true
+shadow_normal_bias = 1.119
+shadow_opacity = 0.8
+
+[node name="Player" parent="." instance=ExtResource("1_kmek0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 13.2097)
+speed = 5
+jump_impulse = 5

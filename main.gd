@@ -3,13 +3,18 @@ extends Node
 @export var target_scene: PackedScene
 var captured = false;
 var target_queue = []
-@onready var locations = [$"World/Spawn Pos", $"World/Spawn Pos2", $"World/Spawn Pos3",
- $"World/Spawn Pos4", $"World/Spawn Pos5", $"World/Spawn Pos6"]
+var locations = []
 var targets = []
 var since_last_spawn = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var world = find_child("World")
+	for c in world.get_children():
+		if is_instance_of(c, Marker3D):
+			locations.append(c)
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,9 +28,8 @@ func _process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		captured = false
 		
-	#if target_queue.size() < 4:
-	spawnTarget()
-		
+	if target_queue.size() < 4:
+		spawnTarget()
 
 func spawnTarget():
 	if since_last_spawn >= 1:
@@ -33,11 +37,8 @@ func spawnTarget():
 		var target = target_scene.instantiate()
 		var index = randi_range(0, locations.size()-1)
 		var position = locations[index]
-		print_debug(position.global_position)
-		for i in targets:
-			if i.transform == position.global_position:
-				return
 
 		target.initialize(position.global_position, look_vector)
 		targets.append(target)
+		add_child(target)
 		since_last_spawn = 0

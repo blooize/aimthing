@@ -12,9 +12,6 @@ material = SubResource("StandardMaterial3D_qr7ql")
 
 [node name="Target" type="CharacterBody3D"]
 script = ExtResource("1_hnex8")
-speed = null
-max_health = null
-current_health = null
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -23,3 +20,8 @@ mesh = SubResource("SphereMesh_b873k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_8v7yn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

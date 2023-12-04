@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtxeyhc66h0ul"]
+[gd_scene load_steps=7 format=3 uid="uid://dtxeyhc66h0ul"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gb1ht"]
 [ext_resource type="PackedScene" uid="uid://c1s1ifjicq0ck" path="res://player.tscn" id="1_kmek0"]
 [ext_resource type="PackedScene" uid="uid://bwlauu1ok5prf" path="res://target.tscn" id="3_2c2n6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kduco"]
-size = Vector3(30, 1, 30)
+size = Vector3(30, 1, 79.5073)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdxbs"]
 albedo_color = Color(0.368627, 0.619608, 0.278431, 1)
@@ -13,18 +13,6 @@ albedo_color = Color(0.368627, 0.619608, 0.278431, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qqr12"]
 material = SubResource("StandardMaterial3D_rdxbs")
 size = Vector3(30, 1, 30)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqlnv"]
-albedo_color = Color(1, 0.027451, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjgi6"]
-albedo_color = Color(0, 1, 0.886275, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3786"]
-albedo_color = Color(0.219608, 0.219608, 0.227451, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1jhg"]
-albedo_color = Color(1, 0.0980392, 0.890196, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gb1ht")
@@ -34,34 +22,12 @@ target_scene = ExtResource("3_2c2n6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.378754)
 shape = SubResource("BoxShape3D_kduco")
 
 [node name="Floor" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.6, 0, 0, 0)
 mesh = SubResource("BoxMesh_qqr12")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="World"]
-transform = Transform3D(0.118335, 0, 0.992974, 0, 1, 0, -0.992974, 0, 0.118335, -5.47691, 0.525554, -4.88794)
-material_override = SubResource("StandardMaterial3D_kqlnv")
-use_collision = true
-size = Vector3(10.0736, 1.58009, 1.35706)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="World"]
-transform = Transform3D(0.747775, 0, 0.663952, 0, 1, 0, -0.663952, 0, 0.747775, 0.0136271, 0.855589, -8.28482)
-material_override = SubResource("StandardMaterial3D_cjgi6")
-use_collision = true
-size = Vector3(2.51269, 1.58009, 1.35706)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.713062, -6.6986)
-material_override = SubResource("StandardMaterial3D_k3786")
-use_collision = true
-size = Vector3(3.20853, 1.21624, 1.35706)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4.91294)
-material_override = SubResource("StandardMaterial3D_m1jhg")
-use_collision = true
-size = Vector3(3.20853, 1, 1.35706)
 
 [node name="Spawn Pos3" type="Marker3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.5, -4)
@@ -87,6 +53,94 @@ gizmo_extents = 0.13
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.5, -4)
 gizmo_extents = 0.13
 
+[node name="Spawn Pos7" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos8" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos9" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos10" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos11" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos12" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos25" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62955, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos26" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62955, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos27" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12955, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos29" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12955, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos31" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62955, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos32" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62955, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos33" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12955, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos35" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12955, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos13" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58995, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos14" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58995, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos16" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08995, 4, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos18" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08995, 2.5, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos19" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58995, 5.50053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos20" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58995, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos22" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08995, 7.00053, -4)
+gizmo_extents = 0.13
+
+[node name="Spawn Pos24" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08995, 5.50053, -4)
+gizmo_extents = 0.13
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.534618, 0.845094, 0, -0.845094, 0.534618, -3.07026, 135.423, 88.3705)
 light_energy = 0.423
@@ -95,6 +149,6 @@ shadow_normal_bias = 1.119
 shadow_opacity = 0.8
 
 [node name="Player" parent="." instance=ExtResource("1_kmek0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 13.2097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 36.0859)
 speed = 5
 jump_impulse = 5
